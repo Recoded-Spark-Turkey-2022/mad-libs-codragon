@@ -26,10 +26,29 @@
  * There are multiple ways to do this, but you may want to use regular expressions.
  * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
  */
-function parseStory(rawStory) {
-  // Your code here.
-  return {}; // This line is currently wrong :)
+ function parseStory(rawStory) {
+  let arrayOfObjects = [];
+  const story = rawStory.split(" ");
+  console.log(story);
+  for (let i = 0; i < story.length; i++) {
+    // created regex for [n][v][a] 
+    if (/\[n\]/.test(story[i]) === true) {
+      arrayOfObjects.push({ word: story[i].replace("[n]", ""), pos: "noun" });
+    } else if (/\[v\]/.test(story[i]) === true) {
+      arrayOfObjects.push({ word: story[i].replace("[v]", ""), pos: "verb" });
+    } else if (/\[a\]/.test(story[i]) === true) {
+      arrayOfObjects.push({
+        word: story[i].replace("[a]", ""),
+        pos: "adjective",
+      });
+    } else {
+      arrayOfObjects.push({ word: story[i] });
+    }
+  }
+
+  return arrayOfObjects;
 }
+
 
 /**
  * All your other JavaScript code goes here, inside the function. Don't worry about
