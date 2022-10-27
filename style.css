@@ -1,3 +1,30 @@
-/**
- * Your CSS goes here.
- */
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+
+  height: 100%;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  gap: 2rem;
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.madLibsEdit {
+  border: 5px solid teal;
+  padding: 2rem;
+}
+
+.madLibsPreview {
+  border: 5px solid teal;
+  padding: 2rem;
+}
