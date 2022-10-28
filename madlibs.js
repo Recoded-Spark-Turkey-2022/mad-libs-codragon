@@ -26,28 +26,27 @@
  * There are multiple ways to do this, but you may want to use regular expressions.
  * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
  */
- function parseStory(rawStory) {
-  let arrayOfObjects = [];
-  const story = rawStory.split(" ");
-  console.log(story);
-  for (let i = 0; i < story.length; i++) {
-    // created regex for [n][v][a] 
-    if (/\[n\]/.test(story[i]) === true) {
-      arrayOfObjects.push({ word: story[i].replace("[n]", ""), pos: "noun" });
-    } else if (/\[v\]/.test(story[i]) === true) {
-      arrayOfObjects.push({ word: story[i].replace("[v]", ""), pos: "verb" });
-    } else if (/\[a\]/.test(story[i]) === true) {
-      arrayOfObjects.push({
-        word: story[i].replace("[a]", ""),
-        pos: "adjective",
-      });
-    } else {
-      arrayOfObjects.push({ word: story[i] });
-    }
-  }
 
-  return arrayOfObjects;
+function parseStory(rawStory) {
+  let arrayOfObjects = [];
+  const story = rawStory.split(" "); // spliting story into an array of words 
+  console.log(story);
+  for (let i = 0; i < story.length; i++){
+     // check if the word has n , v or a with regax
+    if (story[i].match(/[n]/g)){ // finding [n]
+      arrayOfObjects.push({ word: story[i].replace("[n]", ""), pos: "noun" });
+    }else if (story[i].match(/[v]/g)){ // finding [v]
+      arrayOfObjects.push({ word: story[i].replace("[v]", ""), pos: "noun" });
+    }else if (story[i].match(/[a]/g)){ // finding [a]
+      arrayOfObjects.push({ word: story[i].replace("[a]", ""), pos: "noun" });
+    } else {arrayOfObjects.push({ word: story[i] });}
+   
+  }
+   return arrayOfObjects;
 }
+
+  
+ 
 
 
 /**
@@ -56,6 +55,6 @@
  * 
  * You'll want to use the results of parseStory() to display the story on the page.
  */
-getRawStory().then(parseStory).then((processedStory) => {
-  console.log(processedStory);
+    rawStory().then(parseStory).then((processedStory) => {
+  console.log(processedStory)
 });
