@@ -33,12 +33,12 @@ function parseStory(rawStory) {
   console.log(story);
   for (let i = 0; i < story.length; i++){
      // check if the word has n , v or a with regax
-    if (story[i].match(/[n]/g)){ // finding [n]
+    if (story[i].match(/\[n\]/)){ // finding [n]
       arrayOfObjects.push({ word: story[i].replace("[n]", ""), pos: "noun" });
-    }else if (story[i].match(/[v]/g)){ // finding [v]
-      arrayOfObjects.push({ word: story[i].replace("[v]", ""), pos: "noun" });
-    }else if (story[i].match(/[a]/g)){ // finding [a]
-      arrayOfObjects.push({ word: story[i].replace("[a]", ""), pos: "noun" });
+    }else if (story[i].match(/\[v\]/)){ // finding [v]
+      arrayOfObjects.push({ word: story[i].replace("[v]", ""), pos: "verb" });
+    }else if (story[i].match(/\[a\]/)){ // finding [a]
+      arrayOfObjects.push({ word: story[i].replace("[a]", ""), pos: "adjective" });
     } else {arrayOfObjects.push({ word: story[i] });}
    
   }
