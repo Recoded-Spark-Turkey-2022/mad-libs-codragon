@@ -36,9 +36,9 @@ function parseStory(rawStory) {
     if (story[i].match(/[n]/g)){ // finding [n]
       arrayOfObjects.push({ word: story[i].replace("[n]", ""), pos: "noun" });
     }else if (story[i].match(/[v]/g)){ // finding [v]
-      arrayOfObjects.push({ word: story[i].replace("[v]", ""), pos: "noun" });
+      arrayOfObjects.push({ word: story[i].replace("[v]", ""), pos: "verb" });
     }else if (story[i].match(/[a]/g)){ // finding [a]
-      arrayOfObjects.push({ word: story[i].replace("[a]", ""), pos: "noun" });
+      arrayOfObjects.push({ word: story[i].replace("[a]", ""), pos: "adjective" });
     } else {arrayOfObjects.push({ word: story[i] });}
    
   }
@@ -55,6 +55,29 @@ function parseStory(rawStory) {
  * 
  * You'll want to use the results of parseStory() to display the story on the page.
  */
-    rawStory().then(parseStory).then((processedStory) => {
+getRawStory().then(parseStory).then((processedStory) => 
+{
+  let textStory = '';
+  let previewStory = '';
+
   console.log(processedStory)
+  for(let i=0;i<processedStory.length;i++)
+  {
+    if(processedStory[i].pos)
+    {
+      let input = document.createElement('input')
+      input.setAttribute('id',i)
+      input.setAttribute('type','text')
+
+      let span = document.createElement('span')
+      span.setAttribute('id',i)
+
+      previewStory += span.outerHTML+" "
+      textStory += input.outerHTML+" "
+    }else{
+      previewStory += processedStory[i].word+" "
+      textStory += processedStory[i].word+" "
+    }
+  }
+  console.log(previewStory)
 });
