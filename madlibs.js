@@ -70,11 +70,12 @@ getRawStory()
       if (processedStory[i].pos) {
         let span = document.createElement("span");
         span.setAttribute("id", i);
+        span.innerText = '🔥🔥🔥🔥🔥🐉'
 
         let input = document.createElement("input");
         input.setAttribute("id", i);
         input.setAttribute("type", "text");
-        input.setAttribute("type", "text");
+        input.setAttribute("placeholder",processedStory[i].pos );
 
         previewStory += span.outerHTML + " ";
         textStory += input.outerHTML + " ";
@@ -98,16 +99,17 @@ document.addEventListener("keydown", function (e) {
     nextIn.nextElementSibling.focus();
   }
 
-  const button = document.createElement("button");
+});
+
+const button = document.createElement("button");
   button.innerText = "Clear";
   button.addEventListener("click", function () {
     document.querySelectorAll("input").forEach((input) => {
       input.value = "";
     });
 
-    document.querySelectorAll("span").forEach((span) => {
-      span.innerText = "";
-    });
+    document.querySelectorAll(".madLibsPreview > span").forEach((span) => {
+      span.innerText = "🔥🔥🔥🔥🔥🐉";
+      });
   });
   document.body.appendChild(button);
-});
