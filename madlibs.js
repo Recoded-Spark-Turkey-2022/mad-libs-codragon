@@ -52,14 +52,13 @@ function parseStory(rawStory) {
   return arrayOfObjects;
 }
 
-
 /**
  * All your other JavaScript code goes here, inside the function. Don't worry about
  * the `then` and `async` syntax for now.
  *
  * You'll want to use the results of parseStory() to display the story on the page.
  */
- 
+
 getRawStory()
   .then(parseStory)
   .then((processedStory) => {
@@ -93,15 +92,22 @@ document.addEventListener("input", function (e) {
   span.innerText = e.target.value;
 });
 
-const button = document.createElement("button");
-button.innerText = "Clear";
-button.addEventListener("click", function () {
-  document.querySelectorAll("input").forEach((input) => {
-    input.value = "";
-  });
-  document.querySelectorAll("span").forEach((span) => {
-    span.innerText = "";
-  });
-});
-document.body.appendChild(button);
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    let nextIn = document.querySelector(`input[id='${e.target.id}']`);
+    nextIn.nextElementSibling.focus();
+  }
 
+  const button = document.createElement("button");
+  button.innerText = "Clear";
+  button.addEventListener("click", function () {
+    document.querySelectorAll("input").forEach((input) => {
+      input.value = "";
+    });
+
+    document.querySelectorAll("span").forEach((span) => {
+      span.innerText = "";
+    });
+  });
+  document.body.appendChild(button);
+});
