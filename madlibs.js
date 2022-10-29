@@ -52,12 +52,14 @@ function parseStory(rawStory) {
   return arrayOfObjects;
 }
 
+
 /**
  * All your other JavaScript code goes here, inside the function. Don't worry about
  * the `then` and `async` syntax for now.
  *
  * You'll want to use the results of parseStory() to display the story on the page.
  */
+ 
 getRawStory()
   .then(parseStory)
   .then((processedStory) => {
@@ -102,3 +104,4 @@ button.addEventListener("click", function () {
   });
 });
 document.body.appendChild(button);
+
