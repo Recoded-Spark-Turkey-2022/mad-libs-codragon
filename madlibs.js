@@ -65,19 +65,28 @@ getRawStory().then(parseStory).then((processedStory) =>
   {
     if(processedStory[i].pos)
     {
-      let input = document.createElement('input')
-      input.setAttribute('id',i)
-      input.setAttribute('type','text')
-
       let span = document.createElement('span')
       span.setAttribute('id',i)
 
+      let input = document.createElement('input')
+      input.setAttribute('id',i)
+      input.setAttribute('type','text')
+      input.setAttribute('type','text')
+      
       previewStory += span.outerHTML+" "
       textStory += input.outerHTML+" "
+
     }else{
       previewStory += processedStory[i].word+" "
       textStory += processedStory[i].word+" "
     }
   }
-  console.log(previewStory)
+  document.querySelector('.madLibsEdit').innerHTML = textStory
+  document.querySelector('.madLibsPreview').innerHTML = previewStory
+  
 });
+
+document.addEventListener('input',function(e){
+  let span = document.querySelector(`span[id='${e.target.id}']`)
+  span.innerText = e.target.value
+})
