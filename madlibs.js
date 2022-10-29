@@ -55,6 +55,29 @@ function parseStory(rawStory) {
  * 
  * You'll want to use the results of parseStory() to display the story on the page.
  */
-    rawStory().then(parseStory).then((processedStory) => {
+getRawStory().then(parseStory).then((processedStory) => 
+{
+  let textStory = '';
+  let previewStory = '';
+
   console.log(processedStory)
+  for(let i=0;i<processedStory.length;i++)
+  {
+    if(processedStory[i].pos)
+    {
+      let input = document.createElement('input')
+      input.setAttribute('id',i)
+      input.setAttribute('type','text')
+
+      let span = document.createElement('span')
+      span.setAttribute('id',i)
+
+      previewStory += span.outerHTML+" "
+      textStory += input.outerHTML+" "
+    }else{
+      previewStory += processedStory[i].word+" "
+      textStory += processedStory[i].word+" "
+    }
+  }
+  console.log(previewStory)
 });
