@@ -52,14 +52,13 @@ function parseStory(rawStory) {
   return arrayOfObjects;
 }
 
-
 /**
  * All your other JavaScript code goes here, inside the function. Don't worry about
  * the `then` and `async` syntax for now.
  *
  * You'll want to use the results of parseStory() to display the story on the page.
  */
- 
+
 getRawStory()
   .then(parseStory)
   .then((processedStory) => {
@@ -71,11 +70,12 @@ getRawStory()
       if (processedStory[i].pos) {
         let span = document.createElement("span");
         span.setAttribute("id", i);
+        span.innerText = "🔥🔥🔥🔥🔥🐉";
 
         let input = document.createElement("input");
         input.setAttribute("id", i);
         input.setAttribute("type", "text");
-        input.setAttribute("type", "text");
+        input.setAttribute("placeholder", processedStory[i].pos);
 
         previewStory += span.outerHTML + " ";
         textStory += input.outerHTML + " ";
@@ -93,15 +93,53 @@ document.addEventListener("input", function (e) {
   span.innerText = e.target.value;
 });
 
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    let nextIn = document.querySelector(`input[id='${e.target.id}']`);
+    nextIn.nextElementSibling.focus();
+  }
+});
+
 const button = document.createElement("button");
 button.innerText = "Clear";
-button.addEventListener("click", function () {
-  document.querySelectorAll("input").forEach((input) => {
-    input.value = "";
-  });
-  document.querySelectorAll("span").forEach((span) => {
-    span.innerText = "";
-  });
+button.addEventListener("click", function (e) {
+  e.preventDefault();
+  let inputs = document.querySelectorAll("input");
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].value = "";
+  }
+  let spans = document.querySelectorAll("span");
+  for (let i = 0; i < spans.length; i++) {
+    spans[i].innerText = "🔥🔥🔥🔥🔥🐉";
+  }
 });
+
 document.body.appendChild(button);
 
+//when user click clear button, 6JPK.mp4 (video from assets file) will be played and when video finish, the page will be reloaded
+
+button.addEventListener("click", function () {
+  const video = document.createElement("video");
+  //add class to video
+  video.classList.add("video");
+  video.src = "./assets/video.mp4";
+  video.autoplay = true;
+  //window scroll to top with animation
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+
+  //delete body background image and make it black
+  document.body.style.backgroundImage = "none";
+  //add black-bg.png from assets file to body
+  document.body.style.background = "url(./assets/black-bg.png)";
+
+  //when video finish, reload the page
+  video.addEventListener("ended", function () {
+    location.reload();
+  });
+  //append video to body
+  document.body.appendChild(video);
+});
