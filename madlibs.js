@@ -70,11 +70,13 @@ getRawStory()
       if (processedStory[i].pos) {
         let span = document.createElement("span");
         span.setAttribute("id", i);
+
         span.innerText = "🔥🔥🔥🔥🔥🐉";
 
         let input = document.createElement("input");
         input.setAttribute("id", i);
         input.setAttribute("type", "text");
+
         input.setAttribute("placeholder", processedStory[i].pos);
 
         previewStory += span.outerHTML + " ";
