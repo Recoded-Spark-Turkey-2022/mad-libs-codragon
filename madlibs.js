@@ -118,8 +118,6 @@ button.addEventListener("click", function (e) {
 
 document.body.appendChild(button);
 
-//when user click clear button, 6JPK.mp4 (video from assets file) will be played and when video finish, the page will be reloaded
-
 button.addEventListener("click", function () {
   const video = document.createElement("video");
   //add class to video
