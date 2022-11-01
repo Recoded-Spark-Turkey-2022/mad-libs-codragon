@@ -575,4 +575,7 @@ button {
     font-size: 1.25rem;
   }
 }
-/* #got-music { display: none } */
+
+#got-music {
+   display: none 
+  };
