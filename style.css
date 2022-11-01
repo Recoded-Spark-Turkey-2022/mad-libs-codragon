@@ -10,7 +10,7 @@
   font-family: "MyFont", sans-serif;
 }
 
-h1{
+h1 {
   font-size: xx-large;
 }
 
@@ -210,8 +210,9 @@ section {
 }
 
 .main-logo {
-  width: 450px;
-  margin: 15px;
+  width: 350px;
+  margin: 25px;
+  margin-bottom: 80px;
 }
 
 .red-logo {
@@ -307,18 +308,19 @@ input:focus {
 }
 
 button {
-  width: 300px;
+  width: 120px;
 
   cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 1000;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid black;
   margin: 0 auto;
   display: block;
   margin-bottom: 2rem;
   margin-bottom: 150px;
+  margin-top: 50px;
 }
 
 .cersei {
@@ -327,7 +329,6 @@ button {
   top: 1.2rem;
   width: 175px;
   margin-bottom: 0;
-
 }
 
 .jaime {
@@ -577,5 +578,5 @@ button {
 }
 
 #got-music {
-   display: none 
-  };
+  display: none;
+}
