@@ -139,8 +139,8 @@ section {
 
 .madLibsEdit {
   position: absolute;
-  top: 5rem;
   left: 0;
+  z-index: 1;
   transform: scale(0.65);
   width: 100%;
   height: 100%;
@@ -149,9 +149,7 @@ section {
 
 .madLibsPreview {
   position: absolute;
-  top: 5rem;
   left: 0;
-
   transform: scale(0.65);
   width: 100%;
   height: 100%;
@@ -295,7 +293,7 @@ input {
   font-size: 15px;
   border-width: 0px;
   border-color: #2a2222;
-  max-width: 75px;
+  max-width: 120px;
   background-color: transparent;
   color: #000000;
   border-style: hidden;
@@ -320,7 +318,7 @@ button {
   display: block;
   margin-bottom: 2rem;
   margin-bottom: 150px;
-  margin-top: 50px;
+  margin-top: 75px;
 }
 
 .cersei {
