@@ -110,13 +110,13 @@ button.addEventListener("click", function (e) {
   for (let i = 0; i < inputs.length; i++) {
     inputs[i].value = "";
   }
-  let spans = document.querySelectorAll("span");
+  let spans = document.querySelectorAll(".madLibsPreview > span");
   for (let i = 0; i < spans.length; i++) {
     spans[i].innerText = "🔥🔥🔥🔥🔥🐉";
   }
 });
 
-document.body.appendChild(button);
+document.querySelector('.container').appendChild(button);
 
 button.addEventListener("click", function () {
   const video = document.createElement("video");
@@ -143,3 +143,6 @@ button.addEventListener("click", function () {
   //append video to body
   document.body.appendChild(video);
 });
+
+var sample = document.getElementById("got-music");
+sample.play();
