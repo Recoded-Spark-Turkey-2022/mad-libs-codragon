@@ -70,6 +70,7 @@ getRawStory()
       if (processedStory[i].pos) {
         let span = document.createElement("span");
         span.setAttribute("id", i);
+        span.style.color = 'red';
 
         span.innerText = "🔥🔥🔥🔥🔥🐉";
 
