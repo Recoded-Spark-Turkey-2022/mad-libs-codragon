@@ -1,3 +1,580 @@
-/**
- * Your CSS goes here.
- */
+@font-face {
+  font-family: "MyFont";
+  src: url("assets/fonts/Trajan-Pro.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "MyFont", sans-serif;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url(./assets/background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 50%;
+  margin: 0 auto;
+  z-index: 5;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  padding: 1rem;
+  gap: 0.8 rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-container {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.game-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding: 2px;
+}
+
+.game-top-left img {
+  width: 75px;
+}
+
+.game-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+
+  padding: 2px;
+}
+
+.game-top-right img {
+  width: 75px;
+}
+
+.game-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+
+  padding: 2px;
+}
+
+.game-bottom-left img {
+  width: 75px;
+}
+
+.game-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+
+  padding: 2px;
+}
+
+.game-bottom-right img {
+  width: 75px;
+}
+
+.edit-container {
+  background-image: url(./assets/background.png);
+  padding: 1rem;
+  margin: 25px;
+  text-align: justify;
+  text-justify: inter-word;
+  position: relative;
+  max-width: 750px;
+  width: 100%;
+  box-shadow: 30px 30px 20px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+  border: 2px solid #907b61;
+}
+
+.madLibsEdit {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  transform: scale(0.65);
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.madLibsPreview {
+  position: absolute;
+  left: 0;
+  transform: scale(0.65);
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.edit-frame {
+  position: relative;
+  padding: 10px;
+  width: 100%;
+}
+
+.edit-frame img {
+  width: 100%;
+  padding: 2rem;
+}
+
+.preview-container {
+  text-align: justify;
+  margin: 25px;
+  text-justify: inter-word;
+  background-image: url(./assets/background.png);
+  padding: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+  position: relative;
+  max-width: 750px;
+  width: 100%;
+  box-shadow: 30px 30px 20px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+  border: 2px solid #907b61;
+}
+
+.top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.main-logo {
+  width: 350px;
+  margin: 25px;
+  margin-bottom: 80px;
+}
+
+.red-logo {
+  width: 150px;
+  margin: 20px;
+}
+
+.intro {
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.1rem;
+}
+
+.cast-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  gap: 2rem;
+  width: 100%;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.cast-frames {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 3rem;
+}
+
+.cast-frames p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
+}
+
+.frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.targaryen {
+  position: absolute;
+  left: 3.5rem;
+  top: 2rem;
+}
+
+.jon-snow {
+  position: absolute;
+  right: 2rem;
+  top: 2.4rem;
+}
+
+.arya {
+  position: absolute;
+  right: 3rem;
+  top: 1.1rem;
+  max-width: 190px;
+}
+
+input {
+  padding: 2px;
+  font-size: 15px;
+  border-width: 0px;
+  border-color: #2a2222;
+  max-width: 120px;
+  background-color: transparent;
+  color: #000000;
+  border-style: hidden;
+  font-size: 15px;
+  text-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);
+  border-bottom: 1.5px solid black;
+}
+input:focus {
+  outline: none;
+}
+
+button {
+  width: 120px;
+
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 1000;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid black;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 2rem;
+  margin-bottom: 150px;
+  margin-top: 75px;
+}
+
+.cersei {
+  position: absolute;
+  left: 1.6rem;
+  top: 1.2rem;
+  width: 175px;
+  margin-bottom: 0;
+}
+
+.jaime {
+  position: absolute;
+  right: 2rem;
+  top: 1.2rem;
+  width: 150px;
+}
+
+.night-king {
+  position: absolute;
+  right: 2rem;
+  top: 1.25rem;
+  width: 140px;
+}
+
+.drogon {
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  width: 150px;
+}
+
+.viserion {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  width: 165px;
+}
+
+.rhegal {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  width: 160px;
+}
+
+.start-game {
+  text-align: left;
+  width: 100%;
+  padding: 1rem;
+  text-decoration: underline;
+  margin-top: 70px;
+  align-items: calc();
+}
+
+.intro-game {
+  text-align: left;
+  width: 100%;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: large;
+}
+
+@media (max-width: 768px) {
+  .video {
+    width: 100%;
+
+    z-index: 99;
+  }
+  .red-logo {
+    width: 100px;
+  }
+
+  .main-logo {
+    width: 200px;
+  }
+
+  .intro {
+    font-size: 1.5rem;
+  }
+
+  .cast-container {
+    margin-top: 1rem;
+  }
+
+  .cast-frames {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .game-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
+  .game-top-left img {
+    width: 75px;
+  }
+  .game-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
+  .game-top-right img {
+    width: 75px;
+  }
+  .game-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
+  .game-bottom-left img {
+    width: 75px;
+  }
+  .game-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
+  .game-bottom-right img {
+    width: 75px;
+  }
+  .game-container {
+    flex-direction: column;
+  }
+
+  .madLibsEdit {
+    top: 0;
+  }
+
+  .madLibsPreview {
+    top: 0;
+  }
+
+  .start-game {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .red-logo {
+    width: 75px;
+  }
+
+  .main-logo {
+    width: 500px;
+    position: center;
+  }
+
+  .intro {
+    font-size: 1.5rem;
+  }
+
+  .cast-container {
+    margin-top: 1rem;
+  }
+
+  .cast-frames {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .game-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
+  .game-top-left img {
+    width: 50px;
+  }
+  .game-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
+  .game-top-right img {
+    width: 50px;
+  }
+  .game-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
+  .game-bottom-left img {
+    width: 50px;
+  }
+  .game-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
+  .game-bottom-right img {
+    width: 50px;
+  }
+  .game-container {
+    flex-direction: column;
+  }
+
+  .edit-frame img {
+    width: 100%;
+    padding: 0;
+  }
+  .madLibsEdit {
+    font-size: 14px;
+    top: -12px;
+  }
+
+  .madLibsPreview {
+    font-size: 14px;
+    top: -12px;
+  }
+
+  .start-game {
+    text-align: center;
+    font-size: 1.25rem;
+  }
+}
+
+#got-music {
+  display: none;
+}
